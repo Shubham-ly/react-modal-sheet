@@ -23,28 +23,35 @@ const SheetHeader = React.forwardRef<any, SheetDraggableProps>(
 
     return (
       <>
-        <div ref={positionRef} />
-        <motion.div
-          {...rest}
-          ref={ref}
-          style={{ ...styles.headerWrapper, ...style }}
-          {..._dragProps}
-          dragConstraints={positionRef}
-          dragElastic={0}
-        >
-          {children || (
-            <div className="react-modal-sheet-header" style={styles.header}>
-              <motion.span
-                className="react-modal-sheet-drag-indicator"
-                style={{ ...styles.indicator, transform: indicator1Transform }}
-              />
-              <motion.span
-                className="react-modal-sheet-drag-indicator"
-                style={{ ...styles.indicator, transform: indicator2Transform }}
-              />
-            </div>
-          )}
-        </motion.div>
+        <div ref={positionRef}>
+          <motion.div
+            {...rest}
+            ref={ref}
+            style={{ ...styles.headerWrapper, ...style }}
+            {..._dragProps}
+            dragConstraints={positionRef}
+            dragElastic={0}
+          >
+            {children || (
+              <div className="react-modal-sheet-header" style={styles.header}>
+                <motion.span
+                  className="react-modal-sheet-drag-indicator"
+                  style={{
+                    ...styles.indicator,
+                    transform: indicator1Transform,
+                  }}
+                />
+                <motion.span
+                  className="react-modal-sheet-drag-indicator"
+                  style={{
+                    ...styles.indicator,
+                    transform: indicator2Transform,
+                  }}
+                />
+              </div>
+            )}
+          </motion.div>
+        </div>
       </>
     );
   }
